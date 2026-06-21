@@ -84,18 +84,11 @@ h2.title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(
 .cdot.sky{background:var(--sky);animation:gd 1.5s ease-in-out infinite .5s}
 @keyframes gd{0%,100%{opacity:1}50%{opacity:.4}}
 .p-platform{position:absolute;bottom:-10px;width:320px;height:60px;background:radial-gradient(ellipse,rgba(99,102,241,0.35) 0%,transparent 70%);border-radius:50%;filter:blur(16px);animation:groundPulse 3s ease-in-out infinite;z-index:0}
-@keyframes groundPulse{0%,100%{opacity:0.5;transform:scaleX(1)}50%{opacity:1;transform:scaleX(1.1)}}
-.p-core-hp-wrapper{position:relative;width:220px;height:450px;transform-style:preserve-3d;transform:rotateY(-18deg) rotateX(8deg);animation:floatPhone 6s ease-in-out infinite;z-index:2;transition:transform 0.6s cubic-bezier(0.23,1,0.32,1)}
-.p-core-hp-wrapper:hover{animation-play-state:paused;transform:rotateY(-28deg) rotateX(4deg) translateY(-16px) !important}
-@keyframes floatPhone{0%,100%{transform:rotateY(-18deg) rotateX(8deg) translateY(0px)}50%{transform:rotateY(-22deg) rotateX(6deg) translateY(-14px)}}
-.p-hp-body{position:absolute;inset:0;border-radius:42px;background:linear-gradient(160deg,rgba(255,255,255,0.55) 0%,rgba(220,235,255,0.3) 100%);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1.5px solid rgba(255,255,255,0.85);box-shadow:0 40px 80px rgba(99,102,241,0.2),0 20px 40px rgba(59,130,246,0.15),inset 0 2px 12px rgba(255,255,255,0.7),inset 0 -4px 20px rgba(99,102,241,0.08);transform-style:preserve-3d}
-.p-hp-body::before{content:'';position:absolute;right:-3px;top:90px;width:3px;height:55px;background:rgba(255,255,255,0.5);border-radius:0 2px 2px 0;box-shadow:0 30px 0 rgba(255,255,255,0.5)}
-.p-hp-body::after{content:'';position:absolute;inset:-2px;border-radius:44px;background:conic-gradient(from 200deg,transparent 0%,rgba(139,92,246,0.6) 20%,transparent 40%,rgba(59,130,246,0.5) 60%,transparent 80%);filter:blur(6px);z-index:-1;animation:shimmerRing 8s linear infinite}
-@keyframes shimmerRing{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-.p-notch{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:80px;height:22px;background:rgba(10,10,30,0.9);border-radius:0 0 14px 14px;z-index:10}
-.p-notch::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:6px;height:6px;border-radius:50%;background:#1e3a5f;box-shadow:0 0 6px rgba(99,102,241,0.8)}
-.p-home-bar{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);width:90px;height:4px;background:rgba(255,255,255,0.4);border-radius:2px;z-index:10}
-.p-screen{position:absolute;top:14px;bottom:14px;left:14px;right:14px;border-radius:30px;overflow:hidden;z-index:3;background:#080c1a}
+@keyframes groundPulse{0%,100%{opacitFy:0.5;transform:scaleX(1)}50%{opacity:1;transform:scaleX(1.1)}}
+.p-core-hp-wrapper{position:relative;width:550px;display:flex;align-items:center;justify-content:center;animation:floatPhone 6s ease-in-out infinite;z-index:2}
+@keyframes floatPhone{0%,100%{transform:translateY(0px)}50%{transform:translateY(-14px)}}
+.hp-frame-png{width:100%;height:auto;position:relative;z-index:1;pointer-events:none;filter:drop-shadow(0 20px 40px rgba(37,99,235,0.2))}
+.p-screen-overlay{position:absolute;z-index:2;background:#080c1a;overflow:hidden;border-radius:35px;border:2px solid red;top:15%;left:29%;width:42%;height:70%;transform:perspective(1000px) rotateY(-20deg) rotateX(25deg) rotateZ(-14deg);box-shadow:inset 0 0 10px rgba(0,0,0,0.8)}
 .s-aurora{position:absolute;inset:0;background:radial-gradient(ellipse 120% 80% at 20% 20%,rgba(79,70,229,0.55) 0%,transparent 55%),radial-gradient(ellipse 90% 60% at 80% 70%,rgba(6,182,212,0.4) 0%,transparent 50%),radial-gradient(ellipse 100% 70% at 50% 50%,rgba(16,185,129,0.15) 0%,transparent 60%),#070b18;animation:auroraShift 8s ease-in-out infinite alternate}
 @keyframes auroraShift{0%{filter:hue-rotate(0deg) brightness(1)}100%{filter:hue-rotate(30deg) brightness(1.15)}}
 .s-stars{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.8) 1px,transparent 1px),radial-gradient(circle,rgba(255,255,255,0.5) 1px,transparent 1px),radial-gradient(circle,rgba(200,210,255,0.6) 1px,transparent 1px);background-size:120px 120px,80px 80px,60px 60px;background-position:10px 15px,40px 60px,20px 80px;animation:starsDrift 20s linear infinite;opacity:0.7}
@@ -417,40 +410,37 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:1.4r
       <div class="p-visual-scale">
         <div class="p-platform"></div>
         <div class="p-core-hp-wrapper">
-          <div class="p-hp-body">
-            <div class="p-notch"></div>
-            <div class="p-home-bar"></div>
-            <div class="p-screen">
-              <div class="s-aurora"></div>
-              <div class="s-stars"></div>
-              <div class="s-scanlines"></div>
-              <div class="s-glare"></div>
-              <div class="sc-status"><span>9:41</span><div class="s-battery"><div class="s-battery-bar"></div><span>5G</span></div></div>
-              <div class="s-appgrid">
-                <div class="s-app-icon">⚡</div><div class="s-app-icon">💻</div><div class="s-app-icon">🚀</div><div class="s-app-icon">🎨</div>
-              </div>
-              <div class="s-terminal">
-                <div class="s-terminal-header"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div><span class="s-terminal-title">main.dart</span></div>
-                <div class="s-code-line"><span class="c-purple">class</span><span class="c-blue"> MobileApp</span><span class="c-white"> {</span></div>
-                <div class="s-code-line"><span class="c-dim">  </span><span class="c-purple">void</span><span class="c-green"> build</span><span class="c-white">(context) {</span></div>
-                <div class="s-code-line"><span class="c-dim">    </span><span class="c-blue">return</span><span class="c-orange"> Scaffold</span><span class="c-white">(</span></div>
-                <div class="s-code-line"><span class="c-dim">      </span><span class="c-green">body</span><span class="c-white">: </span><span class="c-orange">Center</span><span class="c-white">(</span></div>
-                <div class="s-code-line"><span class="c-dim">        </span><span class="c-green">child</span><span class="c-white">: </span><span class="c-blue">Text</span><span class="c-white">(</span><span class="c-green">'Alviansyah'</span><span class="c-white">)</span><span class="cursor"></span></div>
-              </div>
-              <div class="s-stats">
-                <div class="s-stat-card"><div class="s-stat-num accent">12+</div><div class="s-stat-label">PROJECTS</div></div>
-                <div class="s-stat-card"><div class="s-stat-num">3+</div><div class="s-stat-label">YRS EXP</div></div>
-                <div class="s-stat-card"><div class="s-stat-num accent2">5★</div><div class="s-stat-label">RATING</div></div>
-              </div>
-              <div class="s-skills">
-                <div class="s-skill-row"><div class="s-skill-name">Flutter</div><div class="s-skill-track"><div class="s-skill-fill f-flutter"></div></div></div>
-                <div class="s-skill-row"><div class="s-skill-name">Kotlin</div><div class="s-skill-track"><div class="s-skill-fill f-kotlin"></div></div></div>
-                <div class="s-skill-row"><div class="s-skill-name">PHP</div><div class="s-skill-track"><div class="s-skill-fill f-php"></div></div></div>
-                <div class="s-skill-row"><div class="s-skill-name">JS</div><div class="s-skill-track"><div class="s-skill-fill f-js"></div></div></div>
-              </div>
-              <div class="s-dock">
-                <div class="dock-icon active">🏠</div><div class="dock-icon">🔍</div><div class="dock-icon">📱</div><div class="dock-icon">👤</div>
-              </div>
+          <img src="assets/frame-hp-3d.png" alt="Frame HP 3D" class="hp-frame-png">
+          <div class="p-screen-overlay">
+            <div class="s-aurora"></div>
+            <div class="s-stars"></div>
+            <div class="s-scanlines"></div>
+            <div class="s-glare"></div>
+            <div class="sc-status"><span>9:41</span><div class="s-battery"><div class="s-battery-bar"></div><span>5G</span></div></div>
+            <div class="s-appgrid">
+              <div class="s-app-icon">⚡</div><div class="s-app-icon">💻</div><div class="s-app-icon">🚀</div><div class="s-app-icon">🎨</div>
+            </div>
+            <div class="s-terminal">
+              <div class="s-terminal-header"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div><span class="s-terminal-title">main.dart</span></div>
+              <div class="s-code-line"><span class="c-purple">class</span><span class="c-blue"> MobileApp</span><span class="c-white"> {</span></div>
+              <div class="s-code-line"><span class="c-dim">  </span><span class="c-purple">void</span><span class="c-green"> build</span><span class="c-white">(context) {</span></div>
+              <div class="s-code-line"><span class="c-dim">    </span><span class="c-blue">return</span><span class="c-orange"> Scaffold</span><span class="c-white">(</span></div>
+              <div class="s-code-line"><span class="c-dim">      </span><span class="c-green">body</span><span class="c-white">: </span><span class="c-orange">Center</span><span class="c-white">(</span></div>
+              <div class="s-code-line"><span class="c-dim">        </span><span class="c-green">child</span><span class="c-white">: </span><span class="c-blue">Text</span><span class="c-white">(</span><span class="c-green">'Alviansyah'</span><span class="c-white">)</span><span class="cursor"></span></div>
+            </div>
+            <div class="s-stats">
+              <div class="s-stat-card"><div class="s-stat-num accent">12+</div><div class="s-stat-label">PROJECTS</div></div>
+              <div class="s-stat-card"><div class="s-stat-num">3+</div><div class="s-stat-label">YRS EXP</div></div>
+              <div class="s-stat-card"><div class="s-stat-num accent2">5★</div><div class="s-stat-label">RATING</div></div>
+            </div>
+            <div class="s-skills">
+              <div class="s-skill-row"><div class="s-skill-name">Flutter</div><div class="s-skill-track"><div class="s-skill-fill f-flutter"></div></div></div>
+              <div class="s-skill-row"><div class="s-skill-name">Kotlin</div><div class="s-skill-track"><div class="s-skill-fill f-kotlin"></div></div></div>
+              <div class="s-skill-row"><div class="s-skill-name">PHP</div><div class="s-skill-track"><div class="s-skill-fill f-php"></div></div></div>
+              <div class="s-skill-row"><div class="s-skill-name">JS</div><div class="s-skill-track"><div class="s-skill-fill f-js"></div></div></div>
+            </div>
+            <div class="s-dock">
+              <div class="dock-icon active">🏠</div><div class="dock-icon">🔍</div><div class="dock-icon">📱</div><div class="dock-icon">👤</div>
             </div>
           </div>
           <div class="emergent-nodes-container">
