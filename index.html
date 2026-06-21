@@ -93,22 +93,24 @@ h2.title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(
   z-index: 2;
   background: #080c1a;
   overflow: hidden;
-  border-radius: 34px; /* Sesuaikan dikit kalau sudutnya kurang melengkung */
+  
+  /* Kelengkungan sudut (bisa lu naikin/turunin angkanya biar pas sama bodi) */
+  border-radius: 36px; 
 
-  /* 1. TITIK TENGAH PRESISI (Dari rata-rata koordinat lu) */
+  /* 1. TITIK TENGAH (Udah akurat dari koordinat lu) */
   top: 48.65%;
   left: 47.31%;
 
-  /* 2. UKURAN PRESISI (Dari jarak antar titik lu) */
-  width: 31.25%;
-  height: 79.87%;
+  /* 2. DIMENSI LAYAR (Udah akurat dari selisih X dan Y lu) */
+  width: 31.5%;
+  height: 80%;
 
-  /* 3. PROYEKSI 3D (Tarik ke tengah -> Miringin -> Distorsi 3D -> Koreksi Sudut) */
+  /* 3. ROTASI 3D YANG BENER (Udah gua ganti jadi MINUS dan tambah perspective) */
   transform-origin: center center;
-  transform: translate(-50%, -50%) rotateZ(17.6deg) rotateX(10deg) rotateY(-8deg) skewY(-3deg);
+  transform: translate(-50%, -50%) perspective(1200px) rotateY(-18deg) rotateX(12deg) rotateZ(-18.5deg);
 
-  /* Bayangan dalam biar layar gak kerasa nempel di luar kaca */
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+  /* Shadow biar layar kelihatan tertanam di dalam kaca HP */
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.8);
 }
 .s-aurora{position:absolute;inset:0;background:radial-gradient(ellipse 120% 80% at 20% 20%,rgba(79,70,229,0.55) 0%,transparent 55%),radial-gradient(ellipse 90% 60% at 80% 70%,rgba(6,182,212,0.4) 0%,transparent 50%),radial-gradient(ellipse 100% 70% at 50% 50%,rgba(16,185,129,0.15) 0%,transparent 60%),#070b18;animation:auroraShift 8s ease-in-out infinite alternate}
 @keyframes auroraShift{0%{filter:hue-rotate(0deg) brightness(1)}100%{filter:hue-rotate(30deg) brightness(1.15)}}
