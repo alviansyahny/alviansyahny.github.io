@@ -85,82 +85,9 @@ h2.title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(
 @keyframes gd{0%,100%{opacity:1}50%{opacity:.4}}
 .p-platform{position:absolute;bottom:-10px;width:320px;height:60px;background:radial-gradient(ellipse,rgba(99,102,241,0.35) 0%,transparent 70%);border-radius:50%;filter:blur(16px);animation:groundPulse 3s ease-in-out infinite;z-index:0}
 @keyframes groundPulse{0%,100%{opacitFy:0.5;transform:scaleX(1)}50%{opacity:1;transform:scaleX(1.1)}}
-.p-core-hp-wrapper{position:relative;width:550px;display:flex;align-items:center;justify-content:center;animation:floatPhone 6s ease-in-out infinite;z-index:2}
+.p-core-hp-wrapper{position:relative;display:flex;align-items:center;justify-content:center;animation:floatPhone 6s ease-in-out infinite;z-index:2}
 @keyframes floatPhone{0%,100%{transform:translateY(0px)}50%{transform:translateY(-14px)}}
-.hp-frame-png{width:100%;height:auto;position:relative;z-index:1;pointer-events:none;filter:drop-shadow(0 20px 40px rgba(37,99,235,0.2))}
-.p-screen-overlay {
-  position: absolute;
-  z-index: 2;
-  background: #080c1a;
-  overflow: hidden;
-  border-radius: 34px; /* Sesuaikan dikit kalau sudutnya kurang melengkung */
-
-  /* 1. TITIK TENGAH PRESISI (Dari rata-rata koordinat lu) */
-  top: 48.65%;
-  left: 47.31%;
-
-  /* 2. UKURAN PRESISI (Dari jarak antar titik lu) */
-  width: 31.25%;
-  height: 79.87%;
-
-  /* 3. PROYEKSI 3D (Tarik ke tengah -> Miringin -> Distorsi 3D -> Koreksi Sudut) */
-  transform-origin: center center;
-  transform: translate(-50%, -50%) rotateZ(17.6deg) rotateX(10deg) rotateY(-8deg) skewY(-3deg);
-
-  /* Bayangan dalam biar layar gak kerasa nempel di luar kaca */
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
-}
-.hm-bg{position:absolute;inset:0;background:#08080D;}
-.hm-glow{position:absolute;border-radius:50%;pointer-events:none;}
-.hm-glow-1{width:60%;height:26%;right:-16%;top:-8%;background:radial-gradient(circle,rgba(124,109,255,0.38),rgba(124,109,255,0) 70%);}
-.hm-glow-2{width:55%;height:20%;left:-20%;top:56%;background:radial-gradient(circle,rgba(76,134,255,0.22),rgba(76,134,255,0) 70%);}
-.sc-status{position:absolute;top:10px;left:0;right:0;display:flex;justify-content:space-between;padding:0 20px;font-size:9px;font-weight:700;color:rgba(255,255,255,0.9);z-index:10;letter-spacing:0.5px}
-.s-battery{display:flex;align-items:center;gap:3px}
-.s-battery-bar{width:16px;height:7px;border:1px solid rgba(255,255,255,0.6);border-radius:2px;position:relative}
-.s-battery-bar::before{content:'';position:absolute;left:1px;top:1px;bottom:1px;width:70%;background:#4ade80;border-radius:1px}
-.s-battery-bar::after{content:'';position:absolute;right:-3px;top:50%;transform:translateY(-50%);width:2px;height:4px;background:rgba(255,255,255,0.6);border-radius:0 1px 1px 0}
-.hm-content{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;padding:15% 8% 6%;overflow:hidden}
-.hm-header{display:flex;justify-content:space-between;align-items:flex-start;flex-shrink:0}
-.hm-hello{font-size:5px;line-height:1.3;color:rgba(245,245,247,0.58)}
-.hm-name{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;line-height:1.15;margin-top:1px;letter-spacing:-0.2px;background:linear-gradient(100deg,#C9C4FF,#7EA6FF);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hm-role{font-size:5px;margin-top:2px;color:rgba(245,245,247,0.58)}
-.hm-tag{display:inline-block;margin-top:4px;font-size:4px;font-weight:600;padding:2px 6px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(245,245,247,0.6)}
-.hm-avatar{width:16px;height:16px;border-radius:5px;flex-shrink:0;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);display:flex;align-items:center;justify-content:center}
-.hm-eyebrow{flex-shrink:0;font-size:3.6px;font-weight:700;letter-spacing:0.4px;text-transform:uppercase;color:rgba(245,245,247,0.38);margin:7px 0 4px}
-.hm-stack-viewport{flex-shrink:0;overflow:hidden}
-.hm-stack-track{display:flex;gap:3px}
-.hm-stack-card{flex-shrink:0;width:20px;display:flex;flex-direction:column;align-items:center;gap:2px;padding:3px 1px;border-radius:5px;background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.08)}
-.hm-stack-icon{width:11px;height:11px;border-radius:3px;display:flex;align-items:center;justify-content:center}
-.hm-stack-icon svg{width:7px;height:7px}
-.hm-stack-name{font-size:3.2px;font-weight:600;color:#F5F5F7;white-space:nowrap}
-.hm-code-card{flex-shrink:0;margin-top:6px;background:#0D0D14;border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:4px 5px 5px}
-.hm-code-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:3px}
-.hm-filetab{font-size:3.6px;font-weight:600;color:#F5F5F7}
-.hm-run{font-size:3.2px;font-weight:700;color:#CFC5FF;background:rgba(150,133,255,0.16);padding:1.5px 4px;border-radius:8px}
-.hm-code{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:3.6px;line-height:1.55;color:#F5F5F7;white-space:pre-wrap}
-.hm-kw{color:#B6ABFF}
-.hm-ty{color:#8FBBFF}
-.hm-cursor{display:inline-block;width:1px;height:4px;background:#4C86FF;margin-left:0.5px;vertical-align:-0.5px;animation:hmBlink .8s step-end infinite}
-.hm-char{opacity:0;animation:hmTypeIn .05s ease-out forwards}
-@keyframes hmTypeIn{to{opacity:1}}
-@keyframes hmBlink{0%,49%{opacity:1}50%,100%{opacity:0}}
-.hm-stats{flex-shrink:0;display:flex;gap:2.5px;margin-top:6px}
-.hm-stat{flex:1;text-align:center;background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.08);border-radius:5px;padding:3px 1px}
-.hm-stat-num{font-size:5px;font-weight:700;color:#F5F5F7}
-.hm-stat-label{margin-top:1px;font-size:2.7px;font-weight:600;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,247,0.58)}
-.hm-skills{flex:1;display:flex;flex-direction:column;justify-content:center;gap:4px;min-height:0}
-.hm-skill-top{display:flex;justify-content:space-between;font-size:3.4px;color:#F5F5F7;margin-bottom:1.5px}
-.hm-skill-top span:last-child{color:rgba(245,245,247,0.58)}
-.hm-track{height:2px;border-radius:2px;background:rgba(255,255,255,0.07);overflow:hidden}
-.hm-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#6C63FF,#4C86FF)}
-.hm-nav{flex-shrink:0;display:flex;justify-content:space-between;margin-top:6px;padding-top:5px;border-top:1px solid rgba(255,255,255,0.08)}
-.hm-nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:1.5px}
-.hm-nav-ic{width:9px;height:9px;border-radius:3px;background:rgba(255,255,255,0.06)}
-.hm-nav-item.active .hm-nav-ic{background:linear-gradient(135deg,#6C63FF,#4C86FF)}
-.hm-nav-item span{font-size:2.6px;font-weight:600;color:rgba(245,245,247,0.38)}
-.hm-nav-item.active span{color:#F5F5F7;font-weight:700}
-.s-scanlines{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.04) 3px,rgba(0,0,0,0.04) 4px);pointer-events:none;z-index:20;opacity:0.6}
-.s-glare{position:absolute;top:0;left:0;right:0;height:55%;background:linear-gradient(160deg,rgba(255,255,255,0.07) 0%,transparent 60%);pointer-events:none;z-index:15;border-radius:30px 30px 0 0}
+.hp-frame-png{width:auto;height:auto;max-width:480px;max-height:600px;display:block;position:relative;z-index:1;pointer-events:none;filter:drop-shadow(0 20px 40px rgba(37,99,235,0.2))}
 .emergent-nodes-container{position:absolute;inset:0;z-index:10;pointer-events:none;transform-style:preserve-3d}
 .p-node{position:absolute;top:50%;left:50%;width:58px;height:58px;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:16px;border:1.5px solid rgba(200,220,255,0.6);box-shadow:0 12px 32px rgba(99,102,241,0.28),0 4px 12px rgba(0,0,0,0.15),inset 0 1px 0 rgba(255,255,255,0.9);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;opacity:0;animation:scatter 4.5s ease-in-out infinite}
 .p-node img{width:26px;height:26px;object-fit:contain}
@@ -435,63 +362,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:1.4r
         <div class="p-platform"></div>
         <div class="p-core-hp-wrapper">
           <img src="assets/frame-hp-3d.png" alt="Frame HP 3D" class="hp-frame-png">
-          <div class="p-screen-overlay">
-            <div class="hm-bg"></div>
-            <div class="hm-glow hm-glow-1"></div>
-            <div class="hm-glow hm-glow-2"></div>
-            <div class="s-scanlines"></div>
-            <div class="s-glare"></div>
-            <div class="sc-status"><span>9:41</span><div class="s-battery"><div class="s-battery-bar"></div><span>5G</span></div></div>
-            <div class="hm-content">
-              <div class="hm-header">
-                <div>
-                  <p class="hm-hello">Hello,</p>
-                  <h1 class="hm-name">Alviansyah</h1>
-                  <p class="hm-role">Front-End Engineer</p>
-                  <span class="hm-tag">Flutter · bonus</span>
-                </div>
-                <div class="hm-avatar">
-                  <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#CFC5FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="8.5 7 4 12 8.5 17"/><polyline points="15.5 7 20 12 15.5 17"/></svg>
-                </div>
-              </div>
-              <div class="hm-eyebrow">Tech stack</div>
-              <div class="hm-stack-viewport">
-                <div class="hm-stack-track" id="hmStackTrack"></div>
-              </div>
-              <div class="hm-code-card">
-                <div class="hm-code-head">
-                  <span class="hm-filetab">index.tsx</span>
-                  <span class="hm-run">Run</span>
-                </div>
-                <pre class="hm-code"><span class="hm-kw">export default function</span> Hero() {
-  <span class="hm-kw">return</span> (
-    &lt;<span class="hm-ty">h1</span>&gt;<span class="hm-typing" id="hmTypingName"></span><span class="hm-cursor"></span>&lt;/<span class="hm-ty">h1</span>&gt;
-  );
-}</pre>
-              </div>
-              <div class="hm-stats">
-                <div class="hm-stat"><div class="hm-stat-num">3+</div><div class="hm-stat-label">Projects</div></div>
-                <div class="hm-stat"><div class="hm-stat-num">50K+</div><div class="hm-stat-label">Lines</div></div>
-                <div class="hm-stat"><div class="hm-stat-num">98%</div><div class="hm-stat-label">UI perf</div></div>
-                <div class="hm-stat"><div class="hm-stat-num">A+</div><div class="hm-stat-label">Quality</div></div>
-              </div>
-              <div class="hm-eyebrow">Core expertise</div>
-              <div class="hm-skills">
-                <div class="hm-skill-row"><div class="hm-skill-top"><span>Frontend architecture</span><span>92%</span></div><div class="hm-track"><div class="hm-fill" style="width:92%;"></div></div></div>
-                <div class="hm-skill-row"><div class="hm-skill-top"><span>UI engineering</span><span>96%</span></div><div class="hm-track"><div class="hm-fill" style="width:96%;"></div></div></div>
-                <div class="hm-skill-row"><div class="hm-skill-top"><span>Animation systems</span><span>88%</span></div><div class="hm-track"><div class="hm-fill" style="width:88%;"></div></div></div>
-                <div class="hm-skill-row"><div class="hm-skill-top"><span>Design systems</span><span>90%</span></div><div class="hm-track"><div class="hm-fill" style="width:90%;"></div></div></div>
-                <div class="hm-skill-row"><div class="hm-skill-top"><span>Performance</span><span>94%</span></div><div class="hm-track"><div class="hm-fill" style="width:94%;"></div></div></div>
-              </div>
-              <div class="hm-nav">
-                <div class="hm-nav-item active"><div class="hm-nav-ic"></div><span>Home</span></div>
-                <div class="hm-nav-item"><div class="hm-nav-ic"></div><span>Projects</span></div>
-                <div class="hm-nav-item"><div class="hm-nav-ic"></div><span>Play</span></div>
-                <div class="hm-nav-item"><div class="hm-nav-ic"></div><span>Stats</span></div>
-                <div class="hm-nav-item"><div class="hm-nav-ic"></div><span>Profile</span></div>
-              </div>
-            </div>
-          </div>
           <div class="emergent-nodes-container">
             <div class="p-node e1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg" alt="Flutter"/><span>Flutter</span></div>
             <div class="p-node e2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JS"/><span>JavaScript</span></div>
@@ -976,68 +846,6 @@ function openModal(id){document.getElementById(id).classList.add('open');documen
 function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow='';}
 function handleOverlayClick(e,id){if(e.target===document.getElementById(id))closeModal(id);}
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal-bg.open').forEach(m=>{m.classList.remove('open');document.body.style.overflow='';})}});
-</script>
-<script>
-/* ===== Hero phone mockup: tech-stack carousel + code typing effect ===== */
-(function(){
-  const hmTechStack=[
-    {name:'HTML',bg:'rgba(227,76,38,0.16)',icon:'<svg viewBox="0 0 24 24"><polygon points="5 2 19 2 22 22 12 23 2 22" fill="#E34C26"/></svg>'},
-    {name:'CSS',bg:'rgba(21,114,182,0.16)',icon:'<svg viewBox="0 0 24 24"><polygon points="5 2 19 2 22 22 12 23 2 22" fill="#1572B6"/></svg>'},
-    {name:'JavaScript',bg:'rgba(247,223,30,0.16)',icon:'<svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#F7DF1E"/></svg>'},
-    {name:'React',bg:'rgba(97,218,251,0.16)',icon:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.2" fill="#61DAFB"/><ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61DAFB" stroke-width="1.4"/><ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61DAFB" stroke-width="1.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61DAFB" stroke-width="1.4" transform="rotate(120 12 12)"/></svg>'},
-    {name:'Next.js',bg:'#101014',icon:'<svg viewBox="0 0 24 24"><text x="12" y="17" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">N</text></svg>'},
-    {name:'TypeScript',bg:'#3178C6',icon:'<svg viewBox="0 0 24 24"><text x="12" y="16" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">TS</text></svg>'},
-    {name:'Tailwind',bg:'rgba(56,189,248,0.16)',icon:'<svg viewBox="0 0 24 24" fill="#38BDF8"><path d="M12 6c-2.7 0-4.4 1.3-5 4 1-1.3 2.2-1.8 3.6-1.5.8.2 1.4.8 2 1.4.9.9 2 2 4.4 2 2.7 0 4.4-1.3 5-4-1 1.3-2.2 1.8-3.6 1.5-.8-.2-1.4-.8-2-1.4-.9-.9-2-2-4.4-2z"/><path d="M7 12c-2.7 0-4.4 1.3-5 4 1-1.3 2.2-1.8 3.6-1.5.8.2 1.4.8 2 1.4.9.9 2 2 4.4 2 2.7 0 4.4-1.3 5-4-1 1.3-2.2 1.8-3.6 1.5-.8-.2-1.4-.8-2-1.4-.9-.9-2-2-4.4-2z"/></svg>'},
-    {name:'Figma',bg:'rgba(245,245,247,0.1)',icon:'<svg viewBox="0 0 24 24"><circle cx="9" cy="6" r="3" fill="#F24E1E"/><circle cx="9" cy="18" r="3" fill="#0ACF83"/><path d="M9 9a3 3 0 0 0 0 6h3V9z" fill="#A259FF"/><path d="M15 3h-3v6h3a3 3 0 0 0 0-6z" fill="#FF7262"/><circle cx="15" cy="12" r="3" fill="#1ABCFE"/></svg>'},
-    {name:'Laravel',bg:'rgba(255,45,32,0.16)',icon:'<svg viewBox="0 0 24 24"><text x="12" y="17" text-anchor="middle" font-size="13" font-weight="700" fill="#FF2D20">L</text></svg>'},
-    {name:'Flutter',bg:'rgba(2,86,155,0.16)',icon:'<svg viewBox="0 0 24 24" fill="#02569B"><polygon points="13 2 2 13 7 13 18 24 18 11 13 11"/></svg>'},
-    {name:'Java',bg:'rgba(0,115,150,0.16)',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="#007396" stroke-width="1.3"><path d="M8 8c0-2 1-3 2-3s2 1 2 3c0 0-1 2-2 2s-2-2-2-2z"/><path d="M14 6c1 0 2 1 2 3s-1 3-2 3"/><path d="M8 15c0 2 1 4 3 4s3-2 3-4"/></svg>'}
-  ];
-
-  const hmTrack=document.getElementById('hmStackTrack');
-  if(hmTrack){
-    for(let i=0;i<3;i++){
-      hmTechStack.forEach(t=>{
-        const card=document.createElement('div');
-        card.className='hm-stack-card';
-        card.innerHTML=`<div class="hm-stack-icon" style="background:${t.bg};">${t.icon}</div><span class="hm-stack-name">${t.name}</span>`;
-        hmTrack.appendChild(card);
-      });
-    }
-    let hmPos=0;
-    const hmCardW=23; /* approx width+gap per card at this scale */
-    function hmAnimate(){
-      hmPos+=0.25;
-      const setWidth=hmTechStack.length*hmCardW;
-      if(hmPos>=setWidth) hmPos=0;
-      hmTrack.style.transform=`translateX(${-hmPos}px)`;
-      requestAnimationFrame(hmAnimate);
-    }
-    requestAnimationFrame(hmAnimate);
-  }
-
-  const hmTypeEl=document.getElementById('hmTypingName');
-  if(hmTypeEl){
-    const hmText='Alviansyah';
-    let hmIdx=0;
-    function hmType(){
-      hmTypeEl.innerHTML='';
-      for(let i=0;i<=hmIdx;i++){
-        const span=document.createElement('span');
-        span.className='hm-char';
-        span.textContent=hmText.charAt(i);
-        hmTypeEl.appendChild(span);
-      }
-      hmIdx++;
-      if(hmIdx<=hmText.length){
-        setTimeout(hmType,90);
-      }else{
-        setTimeout(()=>{hmIdx=0;hmType();},2000);
-      }
-    }
-    hmType();
-  }
-})();
 </script>
 </body>
 </html>
